@@ -1,4 +1,5 @@
 Metacrafters_ETH+AVAX_Intermediate_Project_01_Submission
+
 The code Voting System a smart contract exception handling using require(), assert(), and revert() statements. Overall The main objective of this smart contract is to demonstrate different ways of handling exceptions and errors in Solidity.
 
 Contract Introduction
