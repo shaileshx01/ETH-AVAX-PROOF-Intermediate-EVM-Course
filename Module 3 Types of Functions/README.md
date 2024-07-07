@@ -1,8 +1,32 @@
 Metacrafters_ETH+AVAX_Intermediate_Project_03_Submission
-
 This Solidity smart contract, named CustomToken, exemplifies the diverse error handling mechanisms available in Solidity. It enables users to conduct deposit and withdrawal operations, ensuring compliance with specific conditions through the use of require statements. Furthermore, the contract demonstrates the implementation of assert and revert for robust error management. By illustrating these methods, the contract provides a comprehensive understanding of error handling in Solidity, emphasizing the importance of condition enforcement and the proper handling of unexpected states.
 
 Contract Explanation
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.26;
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+
+contract MyToken is ERC20 {
+
+    string public tokenName = "Binance Coin";
+    string public tokenSymbol = "BNB";
+    
+    constructor() ERC20(tokenName, tokenSymbol) {}
+
+    function mint(address _to, uint256 _amount) public {
+        _mint(_to, _amount);
+    }
+
+    function burn(uint256 _amount) public {
+        _burn(msg.sender, _amount);
+    }
+    
+    function transfer(address recipient, uint256 amount) public override returns (bool) {
+        _transfer(msg.sender, recipient, amount);
+        return true;
+    }
+}
 A smart contract for an ERC20 token named "Binance Coin" with the symbol "BNB". It is written using the Solidity version 0.8.26 and utilizes the OpenZeppelin library to inherit standard ERC20 functionalities.
 
 SPDX License Identifier: The comment // SPDX-License-Identifier: MIT specifies that this code is licensed under the MIT License, which is a permissive free software license.
